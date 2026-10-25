@@ -19,7 +19,20 @@ const taskSchema = new mongoose.Schema({
         type: String,
         enum: ['pending' , 'Completed'],
         default: 'pending'
-    }
+    },
+    priority: {
+        type: String,
+        enum: ['Low' , 'Medium', 'High'],
+        default: 'Medium'
+    },
+    dueDate: {
+        type: String,
+    },
+    category: {
+        type: String ,
+        enum: ['Work' , 'Personal' , 'Study'],
+        default: 'Work' ,
+    },
 } , { timestamps: true });
 
 module.exports = mongoose.model('Task', taskSchema);

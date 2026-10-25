@@ -7,7 +7,8 @@ const jwt = require('jsonwebtoken');
 // 1. REGISTER API (/api/auth/register)
 router.post('/register', async (req, res) => {
     try {
-        const { name, email, password } = req.body;
+        const { email, password } = req.body;
+        const name = req.body.name || 'User';
 
         // Check if user already exists
         let user = await User.findOne({ email });
